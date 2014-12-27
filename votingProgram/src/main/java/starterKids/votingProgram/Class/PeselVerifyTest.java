@@ -2,7 +2,6 @@ package starterKids.votingProgram.Class;
 
 import static org.junit.Assert.*;
 
-import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -16,7 +15,7 @@ public class PeselVerifyTest {
 	}
 	
 	@Test
-	public void checkFirstPeselNumber(){
+	public void checkControlSumNumber(){
 		PeselVerify pesel = new PeselVerify("90122301778");
 		int test = pesel.countControlSum();
 		assertEquals(8, test);

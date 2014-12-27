@@ -22,39 +22,40 @@ public class resultPanel extends JPanel{
 
 	resultPanel(String candidate){
 		chosenCandidate = candidate;
+		
 		createVotingResultPanel();
+		createMessagePanelWithInfo();
+		createExitButtonPanelWithExitButton();		
 		addElementsToPanel();
 	}
 		public void createVotingResultPanel(){
 			votingResultPanel = new JPanel();
 			votingResultPanel.setLayout(new BoxLayout(votingResultPanel, BoxLayout.Y_AXIS));		
 		}	
+		private void createMessagePanelWithInfo() {
+			messagePanel = new JPanel();
+			infoLabel = new JLabel("Zagłosowałeś na "+ chosenCandidate);
+			messagePanel.add(infoLabel);
+		}
+		private void createExitButtonPanelWithExitButton() {
+			buttonPanel = new JPanel ();
+			exitButton = new JButton ("wyjdz");
+			exitButton.addActionListener(new ActionListener() {		
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					System.exit(0);
+				}
+			});
+					
+			buttonPanel.add(exitButton);
+		}
 		public void addElementsToPanel(){
-			createMessagePanelWithInfo();
-			createButtonPanel();
-			
 			votingResultPanel.add(Box.createVerticalGlue());
 			votingResultPanel.add(messagePanel);
 			votingResultPanel.add(Box.createVerticalGlue());			
 			votingResultPanel.add(buttonPanel);	
 		}		
-			private void createMessagePanelWithInfo() {
-				messagePanel = new JPanel();
-				infoLabel = new JLabel("Zagłosowałeś na "+ chosenCandidate);
-				messagePanel.add(infoLabel);
-			}
-			private void createButtonPanel() {
-				buttonPanel = new JPanel ();
-				exitButton = new JButton ("wyjdz");
-				exitButton.addActionListener(new ActionListener() {		
-					@Override
-					public void actionPerformed(ActionEvent e) {
-						System.exit(0);
-					}
-				});
-						
-				buttonPanel.add(exitButton);
-			}
+		
 			
 	public JPanel getPanel() {
 		return votingResultPanel;

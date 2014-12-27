@@ -7,9 +7,9 @@ import java.awt.event.ActionListener;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
-import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
@@ -19,91 +19,72 @@ public class MyFrame{
 	
 	private JFrame frame;
 	
-	private LoginPanel loginPanel = new LoginPanel();
-	private CandidatePanel myCandidatePanel;// = new CandidatePanel(getContentPane());
-	private JPanel buttonPanel = new JPanel();	
-	
-	private JButton loginButton = new JButton("Login");
-	private JButton acceptButton = new JButton("Zatwierdz");
-	private ButtonGroup options = new ButtonGroup();
-	
-	
-    public MyFrame(String name) {
-		Dimension minimalsize = new Dimension(400,300);
-		
-    	frame = new JFrame(name);
-		frame.setMinimumSize(minimalsize);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setVisible(true);
-    }
+	private LoginPanel loginPanel;
+	private CandidatePanel myCandidatePanel;
+	private resultPanel replyPanel;
 
-	public Container getContentPane(){
-		return frame.getContentPane();
-	}
+	ActionListener acceptButtonListener = new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			GroupButtonCheckSelected test = new GroupButtonCheckSelected();
+			String selectedCandidate = test.getSelectedButtonText(myCandidatePanel.getOptions());
+			
+			replyPanel = new resultPanel(selectedCandidate);
+			changePanel(replyPanel.getPanel());
+			// JOptionPane.showMessageDialog(null, selectedCandidate);
+		}
+	};
+	
+	ActionListener loginButtonListener = new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			PeselVerify peselVerification = new PeselVerify(loginPanel.getPeselField().getText());
+	    	if(peselVerification.verifyPesel()){
+			    frame.setTitle("Okręg wyborczy:"+ loginPanel.getPeselField().getText());
+				changePanel(myCandidatePanel.getPanel());
+	    	}
+	    	else
+	    		JOptionPane.showMessageDialog(null, null, "Błedny Pesel, wprowadz poprawny" , JOptionPane.INFORMATION_MESSAGE);
+		}
+	};
+	
+    public MyFrame(String name) {		
+    	createFrame(name);	
+    	createPanels();
+		addFirstComponentsToPane(); 
+    }
+		private void createFrame(String name) {
+			Dimension minimalsize = new Dimension(400,300);
+			frame = new JFrame(name);
+			frame.setMinimumSize(minimalsize);
+			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			frame.getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
+			frame.setVisible(true);		
+		}
+		private void createPanels(){
+	    	createLoginPanel();
+	    	createCandidatePanel();		
+		}
+			private void createLoginPanel(){
+				loginPanel = new LoginPanel(loginButtonListener);
+			}
+			private void createCandidatePanel(){
+				myCandidatePanel = new CandidatePanel(acceptButtonListener);
+			}
 	
 	private void changePanel(JPanel newPanel) {
-		getContentPane().removeAll();					
+		getContentPane().removeAll();	
 		getContentPane().add(newPanel);
 		getContentPane().revalidate();
 	}
-	public void addComponentsToPane() {
-
-		getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
+		public Container getContentPane(){
+			return frame.getContentPane();
+		}
 		
-		myCandidatePanel = new CandidatePanel(getContentPane());
-		
-		 loginButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			    	if(loginButton.isEnabled()){
-					    frame.setTitle("Okręg wyborczy:"+ loginPanel.getPeselField().getText());
-						changePanel(myCandidatePanel.getPanel());
-						new PeselVerify(loginPanel.getPeselField().getText()).print();
-			    	}						
-			}
-		});
-		 
-		 buttonPanel.add(loginButton);
-		 loginPanel.getPanel().add(buttonPanel);
-		 loginPanel.getPanel().add(Box.createVerticalStrut(20));
-		 loginButton.setEnabled(false);
-		 
-		 loginPanel.getPeselField().getDocument().addDocumentListener(new DocumentListener() {
-			  public void changedUpdate(DocumentEvent e) {
-			    changed();
-			  }
-			  public void removeUpdate(DocumentEvent e) {
-			    changed();
-			  }
-			  public void insertUpdate(DocumentEvent e) {
-			    changed();
-			  }
-			  public void changed() {
-				 checkIfAvailable(loginPanel, loginButton);	
-			  }
-			  
-		});		 
-	
-		 loginPanel.getZipCodeBox().addActionListener(new ActionListener() {		
-			public void actionPerformed(ActionEvent e) {
-				checkIfAvailable(loginPanel, loginButton);				
-			}
-		});
-		
-		 
-		 getContentPane().add(loginPanel.getPanel());
-	} 
-	 
-	private void checkIfAvailable(final LoginPanel loginPanel,
-			final JButton loginButton) {	
-		 boolean peselNumberIsNumeric = loginPanel.ifPeselCorrect();
-		 boolean comboBoxIsTaken = loginPanel.ifComboBoxCorrect();
-				 if (peselNumberIsNumeric && comboBoxIsTaken){
-			       loginButton.setEnabled(true);
-			     }
-			     else {
-			       loginButton.setEnabled(false);
-			    }
-	}		
+	public void addFirstComponentsToPane() {
+//------- LOAD FIRST PANEL ---------//
+		 frame.getContentPane().add(loginPanel.getPanel());
+	} 		
 }
 
 //    JOptionPane.showMessageDialog(null, null, "InfoBox: "+ loginPanel.getPeselField().getText(), JOptionPane.INFORMATION_MESSAGE);

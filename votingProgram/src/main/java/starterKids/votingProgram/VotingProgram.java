@@ -23,7 +23,6 @@ public class VotingProgram
     } 
 	private static void createAndShowGui() {
 		window = new MyFrame("Login");
-		window.addComponentsToPane(); 
 	}
 	
     public VotingProgram() {

@@ -22,10 +22,20 @@ public class PeselVerify {
 		birthDate = createDateOfBirthFromPesel();
 	}
 	
-	public boolean verifyCheckDigit(){
+	public boolean verifyPesel(){
 		
-		boolean answer = isControlSumCorrect();		
-		return answer;
+		boolean answer = isControlSumCorrect();
+		if(answer==true){
+			answer = isDateCorrect();
+			if(answer == true){
+				answer = isAgeCorrect();
+				return answer;
+			}
+			else
+				return answer;			
+		}
+		else
+			return answer;
 	}
 	
 	public void print(){
@@ -44,7 +54,7 @@ public class PeselVerify {
 	
 	public boolean isDateCorrect(){
 		//birthDate = getDateOfBirth();
-		Date todayDate = new java.util.Date(); /// temporary (need to take date frome internet not from computer
+		Date todayDate = new Date(); /// temporary (need to take date frome internet not from computer
 		return (todayDate.after(birthDate)) ? true : false;
 	}
 	public boolean isControlSumCorrect() {
