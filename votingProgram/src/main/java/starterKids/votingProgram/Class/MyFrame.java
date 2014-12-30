@@ -44,7 +44,7 @@ public class MyFrame{
 				changePanel(myCandidatePanel.getPanel());
 	    	}
 	    	else
-	    		JOptionPane.showMessageDialog(null, null, "Błedny Pesel, wprowadz poprawny" , JOptionPane.INFORMATION_MESSAGE);
+	    		JOptionPane.showMessageDialog(null, "Błedny Pesel, wprowadz poprawny");
 		}
 	};
 	
