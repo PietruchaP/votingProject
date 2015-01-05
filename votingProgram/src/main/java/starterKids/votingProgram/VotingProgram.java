@@ -1,13 +1,7 @@
 package starterKids.votingProgram;
 
-import hibernate.Zip_Codes_Operation;
-import hibernate.Zip_Codes;
-
 import java.awt.EventQueue;
-import java.util.List;
-
-import org.hibernate.Query;
-import org.hibernate.Session;
+import java.util.Scanner;
 
 import starterKids.votingProgram.Class.MyFrame;
 import hibernate.hibernateMain;
@@ -15,14 +9,31 @@ import hibernate.hibernateMain;
 public class VotingProgram
 {	
 	static MyFrame window;
+	static Scanner scan = new Scanner(System.in);
+	static int choice;
 	
     public static void main( String[] args )
     {
     	EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					connectWithDatebase();
-					createAndShowGui();		
+					System.out.println("1. Work with Datebase\n2. Work with Gui\n3. Exit");
+					choice = scan.nextInt();
+					switch(choice){
+					case 1:
+						connectWithDatebase();
+						break;
+					case 2:
+						createAndShowGui();
+						break;
+					case 3:
+						System.exit(0);
+						break;
+					default:
+						System.out.println("blednie wybrana opcja");
+						System.exit(0);
+						break;
+					}
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -34,20 +45,8 @@ public class VotingProgram
 	}
 	
 	private static void connectWithDatebase(){
-	//	hibernateMain hibernateConnection = new hibernateMain();
-	//	hibernateConnection.connectWithDatebaseZipCode();
-	//	Zip_Codes_Operation crudOperation = new Zip_Codes_Operation();
-		//Session session = CRUDOperation.getSessionFactory().openSession();
-		//session.beginTransaction();
-		//Query query = session.createQuery("from Zip_Codes");
-        //List<Zip_Codes> zipCodesList = query.list();
-        //for (Zip_Codes z : zipCodesList) {
-        //       System.out.println(+z.getId() + "," + z.getZip_Codes());
-        //}
-
-        // close session
-        //CRUDOperation.shutdown();
-
+		hibernateMain hibernateConnection = new hibernateMain();
+		hibernateConnection.connectWithDatebase();
 	}
 	
     public VotingProgram() {

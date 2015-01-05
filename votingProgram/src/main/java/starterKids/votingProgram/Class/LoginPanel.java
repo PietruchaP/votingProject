@@ -1,5 +1,8 @@
 package starterKids.votingProgram.Class;
 
+import hibernate.Zip_CodesOperation;
+import hibernate.hibernateMain;
+
 import java.awt.Component;
 import java.awt.Label;
 import java.awt.event.ActionEvent;
@@ -32,7 +35,7 @@ public class LoginPanel extends JPanel {
 	
 	private JTextField peselField;
 	private JComboBox<String> zipCodeBox;	
-	static final String gapList[] = {"","45-234", "73-410", "73-215", "43-420"};
+	//static final String gapList[] = {"","45-234", "73-410", "73-215", "43-420"};
     final static int maxGap = 20;
     private ActionListener loginButtonListener; 
     
@@ -54,7 +57,15 @@ public class LoginPanel extends JPanel {
 				loginButton.setEnabled(false);	
 			}
 			private void createZipCodeBox() {
-				zipCodeBox = new JComboBox<String>(gapList);
+			//	zipCodeBox = new JComboBox<String>(gapList);
+				zipCodeBox = new JComboBox<String>();
+				hibernateMain hibernateConnection = new hibernateMain(); // tutaj!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+				Zip_CodesOperation crudOperation = new Zip_CodesOperation();
+				String loadZipCode;
+				for(int i = 0;i<9;i++){
+					loadZipCode = crudOperation.retrieveZip(i);
+					zipCodeBox.addItem(loadZipCode);
+				}
 				addListenerToZipCodeBox();
 			}
 			private void createPeselField() {
