@@ -14,5 +14,9 @@
 		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
 		<property name="hbm2ddl.auto">update</property>
 		 <mapping class="hibernate.Zip_Codes"></mapping>
+		 <mapping class="hibernate.Candidates"></mapping>
+		 <mapping class="hibernate.Results"></mapping>
+		 <mapping class="hibernate.Elections"></mapping>
+		 <mapping class="hibernate.Voters"></mapping>
     </session-factory>
 </hibernate-configuration>
