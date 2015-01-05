@@ -16,8 +16,26 @@ public class Elections {
 		@Id
 		@GeneratedValue @Column (name="id")
 		private int id;
+		public int getId() {
+			return id;
+		}
+		public void setId(int id) {
+			this.id = id;
+		}
 		@Column (name ="election_date")
 		private Date election_date;
+		public Date getElection_date() {
+			return election_date;
+		}
+		public void setElection_date(Date election_date) {
+			this.election_date = election_date;
+		}
 		@Column (name = "type")
 		private String type;
+		public String getType() {
+			return type;
+		}
+		public void setType(String type) {
+			this.type = type;
+		}
 }
