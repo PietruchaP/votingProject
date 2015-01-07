@@ -1,22 +1,25 @@
-package hibernate;
+package mainConnection;
+
+
+import hibernate.Operation.*;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
-public class hibernateMain {
+
+public class mainConnectionWithDateBase {
+
 	static int id;
 	static int secondWindowChoice;
 	boolean menuControlNumberFlag;
 	static Scanner scan = new Scanner(System.in);
 	
 	
-	public hibernateMain(){
+	public mainConnectionWithDateBase(){
 		connectWithDatebase();
 	}
-	
-	
 	public void connectWithDatebase(){
 		int mainWindowChoice;
 		
@@ -254,3 +257,4 @@ public class hibernateMain {
 			}
 	}
 }
+

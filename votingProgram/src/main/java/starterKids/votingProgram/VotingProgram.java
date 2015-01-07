@@ -3,8 +3,9 @@ package starterKids.votingProgram;
 import java.awt.EventQueue;
 import java.util.Scanner;
 
+import mainConnection.mainConnectionWithDateBase;
 import starterKids.votingProgram.Class.MyFrame;
-import hibernate.hibernateMain;
+
 
 public class VotingProgram
 {	
@@ -45,7 +46,7 @@ public class VotingProgram
 	}
 	
 	private static void connectWithDatebase(){
-		hibernateMain hibernateConnection = new hibernateMain();
+		mainConnectionWithDateBase hibernateConnection = new mainConnectionWithDateBase();
 		hibernateConnection.connectWithDatebase();
 	}
 	

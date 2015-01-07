@@ -1,7 +1,7 @@
 package starterKids.votingProgram.Class;
 
-import hibernate.Zip_CodesOperation;
-import hibernate.hibernateMain;
+
+import hibernate.Operation.Zip_CodesOperation;
 
 import java.awt.Component;
 import java.awt.Label;
@@ -18,6 +18,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+
+import mainConnection.mainConnectionWithDateBase;
 
 public class LoginPanel extends JPanel {
 
@@ -59,7 +61,7 @@ public class LoginPanel extends JPanel {
 			private void createZipCodeBox() {
 			//	zipCodeBox = new JComboBox<String>(gapList);
 				zipCodeBox = new JComboBox<String>();
-				hibernateMain hibernateConnection = new hibernateMain(); // tutaj!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+				mainConnectionWithDateBase hibernateConnection = new mainConnectionWithDateBase(); // tutaj!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 				Zip_CodesOperation crudOperation = new Zip_CodesOperation();
 				String loadZipCode;
 				for(int i = 0;i<9;i++){

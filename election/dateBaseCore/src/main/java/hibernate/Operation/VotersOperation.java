@@ -10,7 +10,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
-public class VoterOperation {
+public class VotersOperation {
 	Configuration config;
 	SessionFactory factory;
 	Session session;
