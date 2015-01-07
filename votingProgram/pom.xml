@@ -3,7 +3,6 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>starterKids</groupId>
   <artifactId>votingProgram</artifactId>
   <packaging>jar</packaging>
 
@@ -15,10 +14,33 @@
 	<artifactId>election</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	</parent>
+		
+	<dependencies>
+	 	<dependency>
+		<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+		</dependency>
+  		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-annotations</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-entitymanager</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-commons-annotations</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.starterKids</groupId>
+			<artifactId>dateBaseCore</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+	</dependencies>
 	
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
- 
 </project>
