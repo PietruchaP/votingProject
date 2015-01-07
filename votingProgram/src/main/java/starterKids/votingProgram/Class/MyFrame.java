@@ -35,7 +35,7 @@ public class MyFrame{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			PeselVerify peselVerification = new PeselVerify(loginPanel.getPeselField().getText());
-	    	if(peselVerification.verifyPesel()){
+	    	if(peselVerification.isPeselCorrect()){
 			    frame.setTitle("Okręg wyborczy:"+ loginPanel.getPeselField().getText());
 				changePanel(myCandidatePanel.getPanel());
 	    	}

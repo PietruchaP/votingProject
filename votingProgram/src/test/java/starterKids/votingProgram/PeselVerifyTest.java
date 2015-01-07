@@ -1,4 +1,4 @@
-package starterKids.votingProgram.Class;
+package starterKids.votingProgram;
 
 import static org.junit.Assert.*;
 
@@ -6,6 +6,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 import org.junit.Test;
+
+import starterKids.votingProgram.Class.PeselVerify;
 
 public class PeselVerifyTest {
 
@@ -49,32 +51,49 @@ public class PeselVerifyTest {
 	@Test
 	public void CurrentDateIsAfterBirth(){
 		PeselVerify pesel = new PeselVerify("90122301778");
-		boolean test = pesel.isDateCorrect();
+		boolean test = pesel.isDateAfterBirthDate();
 		assertEquals(true, test);
 	}
 	@Test
 	public void CurrentDateIsBeforeBirth(){
 		PeselVerify pesel = new PeselVerify("30622301778");
-		boolean test = pesel.isDateCorrect();
+		boolean test = pesel.isDateAfterBirthDate();
 		assertEquals(false, test);
 	}
 	@Test
 	public void TypeOfSexMan(){
 		PeselVerify pesel = new PeselVerify("90122301778");
-		String test = pesel.typeOfSex();
+		String test = pesel.getSexType();
 		assertEquals("man", test);
 	}
 	@Test
 	public void TypeOfSexWoman(){
 		PeselVerify pesel = new PeselVerify("90122301788");
-		String test = pesel.typeOfSex();
+		String test = pesel.getSexType();
 		assertEquals("woman", test);
 	}
 	@Test 
 	public void haveNotEnoughtAge(){
 		PeselVerify pesel = new PeselVerify("9912201778");
-		boolean test = pesel.isAgeCorrect();
+		boolean test = pesel.isVoterMature();
 		assertEquals(false, test);
+	}
+	@Test
+	public void checkDateIfReal(){
+		PeselVerify pesel = new PeselVerify("90023059196");
+		boolean test = pesel.isPeselCorrect();
+		assertEquals(false, test);
+	}
+	@Test
+	public void verifyPeselIsEmpty(){
+		PeselVerify pesel = new PeselVerify("");
+		boolean test = pesel.isPeselCorrect();
+		assertEquals(false, test);
+	}
+	@Test
+	public void checkDateIfToMany(){
+		//PeselVerify pesel = new PeselVerify("90023543059196");
+
 	}
 
 }

@@ -8,52 +8,57 @@ import java.util.Date;
 public class PeselVerify {
 	
 	String pesel = new String();
+	String date;
 	int controlValue;
+	String sexType = new String();
+	boolean peselCorrect;
+
+	public boolean isPeselCorrect() {
+		return peselCorrect;
+	}
+
 	private Date birthDate;
 	int[] peselNumbers = new int[11];
 	char[] charPeselNumber;
 	
-	PeselVerify(String checkPesel){
+	public PeselVerify(String checkPesel){
 		pesel = checkPesel;
+
 		charPeselNumber = pesel.toCharArray();
 		for(int i = 0; i<pesel.length();i++){
 			peselNumbers[i] = Integer.parseInt(String.valueOf(charPeselNumber[i]));
 		}
 		birthDate = createDateOfBirthFromPesel();
+
+			verifyPesel();
+			typeOfSex();
 	}
 	
-	public boolean verifyPesel(){
-		
-		boolean answer = isControlSumCorrect();
-		if(answer==true){
-			answer = isDateCorrect();
-			if(answer == true){
-				answer = isAgeCorrect();
-				return answer;
-			}
-			else
-				return answer;			
-		}
+	public void verifyPesel(){
+		boolean answer1,answer2,answer3, answer4;
+		answer1 = isControlSumCorrect();
+		answer2 = isDateAfterBirthDate();
+		answer3 = isVoterMature();
+		answer4 = isDateValid();
+		if(answer1 == true && answer2==true && answer3 == true && answer4 == true)
+			peselCorrect = true;
 		else
-			return answer;
+			peselCorrect = false;
 	}
 	
 	public void print(){
 		System.out.println(controlValue);
 	}
-	
-	public String typeOfSex(){
-		String sexType = new String();
+
+	private void typeOfSex(){
 		int number = peselNumbers[9]%2;
 		if(number==1)
 			sexType = "man";
 		else
 			sexType = "woman";
-		return sexType;
 	}
 	
-	public boolean isDateCorrect(){
-		//birthDate = getDateOfBirth();
+	public boolean isDateAfterBirthDate(){
 		Date todayDate = new Date(); /// temporary (need to take date frome internet not from computer
 		return (todayDate.after(birthDate)) ? true : false;
 	}
@@ -71,7 +76,7 @@ public class PeselVerify {
 		return birthDate;
 	}
 		private Date createDateOfBirthFromPesel() {
-			String date = null;
+			date = null;
 			SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
 			Date dateFromPesel = null;
 			int defineYearNumber = peselNumbers[2];
@@ -127,7 +132,7 @@ public class PeselVerify {
 			return dateFromPesel;
 		}
 
-		public boolean isAgeCorrect() {
+		public boolean isVoterMature() {
 			Date today = new Date();
 			Calendar cal = Calendar.getInstance();
 			cal.setTime(today);
@@ -135,7 +140,31 @@ public class PeselVerify {
 			Date adultDay = cal.getTime();
 			return birthDate.before(adultDay);
 		}
-	
+		public boolean isDateValid(){
+			
+			if(date == null){
+				return false;
+			}
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			sdf.setLenient(false); 
+			try { 
+				Date checkedDate = sdf.parse(date);
+				System.out.println(checkedDate);
+			} catch (ParseException e) {	 
+				e.printStackTrace();
+				return false;
+			} 
+			return true;
+		}
+		
+		public String getSexType() {
+			return sexType;
+		}
+
+		public void setSexType(String sexType) {
+			this.sexType = sexType;
+		}
+		
 	//      1800 – 1899 	1900 – 1999 	2000 – 2099 	2100 – 2199 	2200 – 2299
 	//Styczeń 	81 	            01 	             21 	         41 	        61
 
