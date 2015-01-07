@@ -3,15 +3,16 @@ package hibernate;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table (name = "volters")
+@Table (name = "voters")
 public class Voters {
 	
 	@Id
-	@GeneratedValue @Column (name="id")
+	@GeneratedValue(strategy = GenerationType.AUTO) @Column (name="id")
 	private int id;
 	public int getId() {
 		return id;

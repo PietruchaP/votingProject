@@ -2,6 +2,7 @@ package hibernate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -37,7 +38,7 @@ public class Candidates {
 	public void setSurname(String surname) {
 		this.surname = surname;
 	}
-	
+	//@ManyToOne()
 	@Column (name = "zip_codes_id")
 	private int zip_codes_id;
 	public int getZip_codes_id() {
