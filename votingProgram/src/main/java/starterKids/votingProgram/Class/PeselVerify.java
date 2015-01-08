@@ -72,9 +72,6 @@ public class PeselVerify {
 			return controlValue;
 		}
 
-	public Date getDateOfBirth() {
-		return birthDate;
-	}
 		private Date createDateOfBirthFromPesel() {
 			date = null;
 			SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
@@ -164,8 +161,8 @@ public class PeselVerify {
 		public void setSexType(String sexType) {
 			this.sexType = sexType;
 		}
-		
-	//      1800 – 1899 	1900 – 1999 	2000 – 2099 	2100 – 2199 	2200 – 2299
-	//Styczeń 	81 	            01 	             21 	         41 	        61
 
+		public Date getDateOfBirth() {
+			return birthDate;
+		}
 }

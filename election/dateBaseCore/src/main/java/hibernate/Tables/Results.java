@@ -15,6 +15,4 @@ public class Results {
 //	private int volters_id;
 //	@Column(name="candidates_id")
 //	private int candidates_id;
-	
-	
 }

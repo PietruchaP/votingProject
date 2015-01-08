@@ -2,6 +2,7 @@ package hibernate.Tables;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GenerationType;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.GeneratedValue;
@@ -12,7 +13,7 @@ import javax.persistence.Id;
 public class Candidates {
 	
 	@Id
-	@GeneratedValue @Column (name="id")
+	@GeneratedValue(strategy = GenerationType.AUTO) @Column (name="id")
 	private int id;
 	public int getId() {
 		return id;
