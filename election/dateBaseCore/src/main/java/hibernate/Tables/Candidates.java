@@ -2,7 +2,9 @@ package hibernate.Tables;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GenerationType;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.GeneratedValue;
@@ -39,13 +41,13 @@ public class Candidates {
 	public void setSurname(String surname) {
 		this.surname = surname;
 	}
-	//@ManyToOne()
-	@Column (name = "zip_codes_id")
-	private int zip_codes_id;
-	public int getZip_codes_id() {
-		return zip_codes_id;
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn (name = "zip_codes_id")
+	private Zip_Codes zipCode;
+	public Zip_Codes getZip_codes_id() {
+		return zipCode;
 	}
-	public void setZip_codes_id(int zip_codes_id) {
-		this.zip_codes_id = zip_codes_id;
+	public void setZip_codes_id(Zip_Codes zip_codes ){
+		zipCode = zip_codes;
 	}
 }

@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -30,13 +32,10 @@ public class Voters {
 		this.pesel = pesel;
 	}
 	
-	@Column (name = "zip_codes_id")
-	private int zip_codes_id;
-	public int getZip_codes_id() {
+	@ManyToOne
+	@JoinColumn (name = "zip_codes_id")
+	private Zip_Codes zip_codes_id;
+	public Zip_Codes getZip_codes_id() {
 		return zip_codes_id;
 	}
-	public void setZip_codes_id(int zip_codes_id) {
-		this.zip_codes_id = zip_codes_id;
-	}
-	
 }

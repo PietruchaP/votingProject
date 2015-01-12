@@ -15,7 +15,8 @@ import javax.persistence.Table;
 public class Elections {
 
 		@Id
-		@GeneratedValue(strategy = GenerationType.AUTO) @Column (name="id")
+		@GeneratedValue(strategy = GenerationType.AUTO)
+		@Column (name="id")
 		private int id;
 		public int getId() {
 			return id;
