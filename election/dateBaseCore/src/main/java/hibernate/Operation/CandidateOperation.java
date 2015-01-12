@@ -42,7 +42,7 @@ public class CandidateOperation {
 				Candidates candidate = new Candidates();
 				candidate.setFirstname(firstname);
 				candidate.setSurname(surname);
-				candidate.setZip_codes_id(zipId);
+			//	candidate.setZip_codes_id(zipId);
 				tx = session.beginTransaction();
 				int result = (Integer)session.save(candidate); //give primary key
 				
@@ -94,7 +94,7 @@ public class CandidateOperation {
 					candidate.setId(id);
 					candidate.setFirstname(firstname);
 					candidate.setSurname(surname);
-					candidate.setZip_codes_id(zipId);
+			//		candidate.setZip_codes_id(zipId);
 					tx = session.beginTransaction();
 					session.update(candidate);
 					

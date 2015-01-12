@@ -48,7 +48,6 @@ public class Zip_CodesOperation{
 			
 			if(zip!=null){
 				retrieve = zip.getZip_Codes();
-
 			}
 			else{
 				System.out.println("No zipCode with this id");

@@ -42,7 +42,7 @@ public class VotersOperation {
 				
 				Voters voter = new Voters();
 				voter.setPesel(pesel);
-				voter.setZip_codes_id(zipId);
+		//		voter.setZip_codes_id(zipId);
 				tx = session.beginTransaction();
 				int result = (Integer)session.save(voter); //give primary key
 				
@@ -92,7 +92,7 @@ public class VotersOperation {
 				if(voter!=null){
 					voter.setId(id);
 					voter.setPesel(pesel);
-					voter.setZip_codes_id(zipId);
+			//		voter.setZip_codes_id(zipId);
 					tx = session.beginTransaction();
 					session.update(voter);
 					
