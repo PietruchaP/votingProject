@@ -11,7 +11,7 @@ public class PeselVerify {
 	String date;
 	int controlValue;
 	String sexType = new String();
-	boolean peselCorrect;
+	boolean peselCorrect = false;
 
 	public boolean isPeselCorrect() {
 		return peselCorrect;
@@ -30,8 +30,8 @@ public class PeselVerify {
 		}
 		birthDate = createDateOfBirthFromPesel();
 
-			verifyPesel();
-			typeOfSex();
+		verifyPesel();
+		typeOfSex();
 	}
 	
 	public void verifyPesel(){
@@ -46,7 +46,7 @@ public class PeselVerify {
 			peselCorrect = false;
 	}
 	
-	public void print(){
+	public void printControlValue(){
 		System.out.println(controlValue);
 	}
 
@@ -76,47 +76,49 @@ public class PeselVerify {
 			date = null;
 			SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
 			Date dateFromPesel = null;
+			 String year = pesel.substring(0,2);
+			 String month = pesel.substring(2,4);
+			 String day = pesel.substring(4,6);
+			
 			int defineYearNumber = peselNumbers[2];
 			switch(defineYearNumber){
 				case (0):
-					date = "19" + Integer.toString(peselNumbers[0])+Integer.toString(peselNumbers[1])+"-"+Integer.toString(peselNumbers[2])+Integer.toString(peselNumbers[3])+"-"+
-							Integer.toString(peselNumbers[4])+Integer.toString(peselNumbers[5]);
+					date = "19" + year + "-" + month + "-" + day;
 					break;	
 				case (1):
-					date = "19" + Integer.toString(peselNumbers[0])+Integer.toString(peselNumbers[1])+"-"+Integer.toString(peselNumbers[2])+Integer.toString(peselNumbers[3])+"-"+
-							Integer.toString(peselNumbers[4])+Integer.toString(peselNumbers[5]);
+					date = "19" + year + "-" + month + "-" + day;
 					break;
 				case (2):
-					date = "20" + Integer.toString(peselNumbers[0])+Integer.toString(peselNumbers[1])+"-"+"0"+Integer.toString(peselNumbers[3])+"-"+
-							Integer.toString(peselNumbers[4])+Integer.toString(peselNumbers[5]);
+					month = "0"+pesel.charAt(3);
+					date = "20" + year + "-" + month + "-" + day;
 					break;
 				case (3):
-					date = "20" + Integer.toString(peselNumbers[0])+Integer.toString(peselNumbers[1])+"-"+"1"+Integer.toString(peselNumbers[3])+"-"+
-							Integer.toString(peselNumbers[4])+Integer.toString(peselNumbers[5]);
+					month = "1"+pesel.charAt(3);
+					date = "20" + year + "-" + month + "-" + day;
 					break;
 				case (4):
-					date = "21" + Integer.toString(peselNumbers[0])+Integer.toString(peselNumbers[1])+"-"+"0"+Integer.toString(peselNumbers[3])+"-"+
-							Integer.toString(peselNumbers[4])+Integer.toString(peselNumbers[5]);
+					month = "0"+pesel.charAt(3);
+					date = "21" + year + "-" + month + "-" + day;
 					break;
 				case (5):
-					date = "21" + Integer.toString(peselNumbers[0])+Integer.toString(peselNumbers[1])+"-"+"1"+Integer.toString(peselNumbers[3])+"-"+
-							Integer.toString(peselNumbers[4])+Integer.toString(peselNumbers[5]);
+					month = "1"+pesel.charAt(3);
+					date = "21" + year + "-" + month + "-" + day;
 					break;
 				case (6):
-					date = "22" + Integer.toString(peselNumbers[0])+Integer.toString(peselNumbers[1])+"-"+"0"+Integer.toString(peselNumbers[3])+"-"+
-							Integer.toString(peselNumbers[4])+Integer.toString(peselNumbers[5]);
+					month = "0"+pesel.charAt(3);
+					date = "22" + year + "-" + month + "-" + day;
 					break;
 				case (7):
-					date = "22" + Integer.toString(peselNumbers[0])+Integer.toString(peselNumbers[1])+"-"+"1"+Integer.toString(peselNumbers[3])+"-"+
-							Integer.toString(peselNumbers[4])+Integer.toString(peselNumbers[5]);
+					month = "1"+pesel.charAt(3);
+					date = "22" + year + "-" + month + "-" + day;
 					break;
 				case (8):
-					date = "18" + Integer.toString(peselNumbers[0])+Integer.toString(peselNumbers[1])+"-"+"0"+Integer.toString(peselNumbers[3])+"-"+
-							Integer.toString(peselNumbers[4])+Integer.toString(peselNumbers[5]);
+					month = "0"+pesel.charAt(3);
+					date = "18" + year + "-" + month + "-" + day;
 					break;
 				case (9):
-					date = "18" + Integer.toString(peselNumbers[0])+Integer.toString(peselNumbers[1])+"-"+"1"+Integer.toString(peselNumbers[3])+"-"+
-							Integer.toString(peselNumbers[4])+Integer.toString(peselNumbers[5]);
+					month = "1"+pesel.charAt(3);
+					date = "18" + year + "-" + month + "-" + day;
 					break;
 				default:
 					break;
@@ -164,5 +166,9 @@ public class PeselVerify {
 
 		public Date getDateOfBirth() {
 			return birthDate;
+		}
+		
+		public int getControlValue() {
+			return controlValue;
 		}
 }

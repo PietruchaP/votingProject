@@ -62,12 +62,15 @@ public class LoginPanel extends JPanel {
 			//	zipCodeBox = new JComboBox<String>(gapList);
 				zipCodeBox = new JComboBox<String>();
 				//mainConnectionWithDateBase hibernateConnection = new mainConnectionWithDateBase(); // tutaj!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+				
 				Zip_CodesOperation crudOperation = new Zip_CodesOperation();
 				String loadZipCode;
 				for(int i = 0;i<9;i++){
 					loadZipCode = crudOperation.retrieveZip(i);
 					zipCodeBox.addItem(loadZipCode);
+					
 				}
+				
 				addListenerToZipCodeBox();
 			}
 			private void createPeselField() {

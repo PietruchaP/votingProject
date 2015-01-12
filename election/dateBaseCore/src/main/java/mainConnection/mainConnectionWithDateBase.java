@@ -47,6 +47,11 @@ public class mainConnectionWithDateBase {
 			break;
 		}
 	}
+	
+	private void zipCodeNewChoice(){
+		
+	}
+	
 	private void zipCodeChoice(){
 		Zip_CodesOperation zipCodeOperation = new Zip_CodesOperation();
 		

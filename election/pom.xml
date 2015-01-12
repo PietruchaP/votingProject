@@ -6,6 +6,12 @@
   <version>0.0.1-SNAPSHOT</version><!--  0.0.1-SNAPSHOT -->
   <packaging>pom</packaging>
   
+  <!--  <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.1.1.RELEASE</version>
+    </parent>-->
+  
   <modules>
  	 <module>../votingProgram</module>
  	 <module>dateBaseCore</module>
@@ -13,6 +19,7 @@
   
 	<dependencyManagement>
 	  <dependencies>
+	  	<!--  HIBERNATE -->
 		   <dependency>
 				<groupId>org.hibernate</groupId>
 				<artifactId>hibernate-core</artifactId>
@@ -60,11 +67,39 @@
 		</dependency>
 
 	        <!-- Spring framework -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>1.2.1.RELEASE</version>
+        </dependency>
+        <dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.5.0</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework</groupId>
-			<artifactId>spring</artifactId>
-			<version>2.5.6</version>
+			<artifactId>spring-core</artifactId>
+			<version>4.1.4.RELEASE</version>
 		</dependency>
+	    <dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>4.1.4.RELEASE</version>
+		</dependency>
+		<dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>4.1.4.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+         	<version>4.1.4.RELEASE</version>
+        </dependency>
+
+		
 		
 	  </dependencies>
 

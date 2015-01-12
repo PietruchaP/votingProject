@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.junit.Test;
 
@@ -34,16 +35,15 @@ public class PeselVerifyTest {
 	public void checkIfPossibleToGetDateFromPesel(){
 		PeselVerify pesel = new PeselVerify("90122301778");
 		SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
-		java.util.Date date1 = null;
-
-	          try {
-				date1 = fmt.parse(new String("1990-12-23"));
-			} catch (ParseException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} 
-
-		 java.util.Date date2 = pesel.getDateOfBirth();
+		Date date1 = null;
+		try{
+			date1 = fmt.parse(new String("1990-12-23"));
+		}
+		catch(ParseException exception)
+		{
+			System.out.println("not possible to get date From Pesel");
+		}
+		 Date date2 = pesel.getDateOfBirth();
 		System.out.println(date2);	
 		assertEquals(date1,date2);		
 	}
@@ -86,14 +86,21 @@ public class PeselVerifyTest {
 	}
 	@Test
 	public void verifyPeselIsEmpty(){
-		PeselVerify pesel = new PeselVerify("");
-		boolean test = pesel.isPeselCorrect();
-		assertEquals(false, test);
+		//PeselVerify pesel = new PeselVerify("");
+		//boolean test = pesel.isPeselCorrect();
+		//assertEquals(false, test);
 	}
 	@Test
 	public void checkDateIfToMany(){
 		//PeselVerify pesel = new PeselVerify("90023543059196");
-
 	}
-
+	@Test
+	public void checkPrintControValueMethod(){
+		PeselVerify pesel = new PeselVerify("90122301778");
+		pesel.countControlSum();
+		int controlPeselValue = pesel.getControlValue();
+		String Value = Integer.toString(controlPeselValue);
+		
+	//	assertEquals()
+	}
 }

@@ -30,7 +30,7 @@ public class VotingProgram
 					case 3:
 						System.exit(0);
 						break;
-					default:
+					default: 
 						System.out.println("blednie wybrana opcja");
 						System.exit(0);
 						break;
