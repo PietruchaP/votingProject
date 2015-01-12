@@ -2,9 +2,9 @@ package hibernate.Daos;
 
 import hibernate.Tables.Elections;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-@Component("electionsDao")
+@Repository("electionsDao")
 public class ElectionsDao extends GenericDaoImp<Elections> {
 
 }

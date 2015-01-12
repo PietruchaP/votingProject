@@ -1,10 +1,10 @@
 package hibernate.Daos;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import hibernate.Tables.Voters;
 
-@Component("voterDao")
+@Repository("voterDao")
 public class VoterDao extends GenericDaoImp<Voters> {
 		
 }
