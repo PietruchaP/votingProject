@@ -9,7 +9,7 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.JoinColumn;
-
+//przeksztalcamy baze
 @Entity
 @Table (name = "results")
 @AssociationOverrides({
