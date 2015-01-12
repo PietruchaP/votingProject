@@ -34,8 +34,11 @@ public class Voters {
 	
 	@ManyToOne
 	@JoinColumn (name = "zip_codes_id")
-	private Zip_Codes zip_codes_id;
-	public Zip_Codes getZip_codes_id() {
-		return zip_codes_id;
+	private Zip_Codes zipCode;
+	public Zip_Codes getZip_Code() {
+		return zipCode;
+	}
+	public void setZip_Code(Zip_Codes zipCode){
+		this.zipCode = zipCode;
 	}
 }
