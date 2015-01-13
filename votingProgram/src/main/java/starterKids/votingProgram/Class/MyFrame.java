@@ -17,7 +17,7 @@ public class MyFrame{
 	
 	private LoginPanel loginPanel;
 	private CandidatePanel myCandidatePanel;
-	private resultPanel replyPanel;
+	private ResultPanel replyPanel;
 
 	ActionListener acceptButtonListener = new ActionListener() {
 		@Override
@@ -25,7 +25,7 @@ public class MyFrame{
 			GroupButtonCheckSelected test = new GroupButtonCheckSelected();
 			String selectedCandidate = test.getSelectedButtonText(myCandidatePanel.getOptions());
 			
-			replyPanel = new resultPanel(selectedCandidate);
+			replyPanel = new ResultPanel(selectedCandidate);
 			changePanel(replyPanel.getPanel());
 			// JOptionPane.showMessageDialog(null, selectedCandidate);
 		}
