@@ -1,6 +1,6 @@
 package hibernate.Operation;
 
-import hibernate.Tables.Candidates;
+import hibernate.model.Candidates;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

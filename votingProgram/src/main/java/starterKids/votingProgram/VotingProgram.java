@@ -1,9 +1,10 @@
 package starterKids.votingProgram;
 
+import hibernate.service.MainConnectionWithDateBase;
+
 import java.awt.EventQueue;
 import java.util.Scanner;
 
-import mainConnection.MainConnectionWithDateBase;
 import starterKids.votingProgram.Class.MyFrame;
 
 

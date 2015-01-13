@@ -1,6 +1,6 @@
 package hibernate.Operation;
 
-import hibernate.Tables.Zip_Codes;
+import hibernate.model.Zip_Codes;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;

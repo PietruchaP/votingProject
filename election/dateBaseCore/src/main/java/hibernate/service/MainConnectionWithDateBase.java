@@ -1,4 +1,4 @@
-package mainConnection;
+package hibernate.service;
 
 
 import hibernate.Operation.*;

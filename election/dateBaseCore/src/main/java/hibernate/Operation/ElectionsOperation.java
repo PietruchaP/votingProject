@@ -1,6 +1,6 @@
 package hibernate.Operation;
 
-import hibernate.Tables.Elections;
+import hibernate.model.Elections;
 
 import java.util.Date;
 

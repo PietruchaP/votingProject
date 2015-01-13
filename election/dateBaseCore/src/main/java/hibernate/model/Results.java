@@ -1,4 +1,4 @@
-package hibernate.Tables;
+package hibernate.model;
 
 import java.beans.Transient;
 import java.io.Serializable;

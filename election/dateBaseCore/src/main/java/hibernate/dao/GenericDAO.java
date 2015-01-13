@@ -1,8 +1,8 @@
-package hibernate.Daos;
+package hibernate.dao;
 
 import java.util.Map;
 import java.util.List;
-public interface GenericDao<T> {
+public interface GenericDAO<T> {
 	
 //	long countAll(Map<String, Object>params);
 //	public List<T> findAll();

@@ -2,6 +2,7 @@ package starterKids.votingProgram.Class;
 
 
 import hibernate.Operation.Zip_CodesOperation;
+import hibernate.service.MainConnectionWithDateBase;
 
 import java.awt.Component;
 import java.awt.Label;
@@ -18,8 +19,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
-
-import mainConnection.MainConnectionWithDateBase;
 
 public class LoginPanel extends JPanel {
 

@@ -1,9 +1,9 @@
 package hibernate.Operation;
 
-import hibernate.Tables.Candidates;
-import hibernate.Tables.Elections;
-import hibernate.Tables.Results;
-import hibernate.Tables.Voters;
+import hibernate.model.Candidates;
+import hibernate.model.Elections;
+import hibernate.model.Results;
+import hibernate.model.Voters;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

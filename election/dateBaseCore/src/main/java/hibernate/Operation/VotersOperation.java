@@ -1,7 +1,7 @@
 package hibernate.Operation;
 
-import hibernate.Tables.Voters;
-import hibernate.Tables.Zip_Codes;
+import hibernate.model.Voters;
+import hibernate.model.Zip_Codes;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

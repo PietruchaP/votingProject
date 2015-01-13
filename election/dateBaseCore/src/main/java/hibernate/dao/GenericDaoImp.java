@@ -1,4 +1,4 @@
-package hibernate.Daos;
+package hibernate.dao;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -12,9 +12,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import hibernate.Daos.GenericDao;
+import hibernate.dao.GenericDAO;
 
-public abstract class GenericDaoImp<T> implements GenericDao<T> {
+public abstract class GenericDaoImp<T> implements GenericDAO<T> {
 
 	@PersistenceContext
 	protected EntityManager em;
