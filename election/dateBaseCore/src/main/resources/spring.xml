@@ -14,18 +14,24 @@
             base-package="org.springframework.samples.service"/>  -->
             
             <!-- Initialization for data source -->
+ 
+        <!-- Enable Annotation based Declarative Transaction Management -->
+    <tx:annotation-driven proxy-target-class="true"
+        transaction-manager="transactionManager" />
+ 
+ <!-- Creating TransactionManager Bean, since JDBC we are creating of type
+        DataSourceTransactionManager -->   
+    <bean id="transactionManager"
+        class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+    
    <bean id="dataSource" 
       class="org.springframework.jdbc.datasource.DriverManagerDataSource">
       <property name="driverClassName" value="org.postgresql.Driver"/>
       <property name="url" value="jdbc:postgresql://localhost:5432/voteProgram"/>
       <property name="username" value="postgres"/>
       <property name="password" value="pipin11"/>
-   </bean>
-
-   <!-- Definition for studentJDBCTemplate bean -->
-   <bean id="genericDaoImp" 
-      class="com.tutorialspoint.StudentJDBCTemplate">
-      <property name="dataSource"  ref="dataSource" />    
    </bean>
       
 </beans>
