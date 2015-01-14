@@ -15,29 +15,25 @@ public class ManagerImpl implements Manager{
 	@Override
 	@Transactional
 	public void insertZipCode(Zip_Codes zipCode) {
-		zipCodeDAO.create(zipCode);
-		
+		zipCodeDAO.create(zipCode);	
 	}
 
 	@Override
 	@Transactional
 	public void retriveZipCode(Zip_Codes zipCode) {
-		zipCodeDAO.retrive(zipCode.getId());
-		
+		zipCodeDAO.retrive(zipCode.getId());	
 	}
 
 	@Override
 	@Transactional
 	public void updateZipCode(Zip_Codes zipCode) {
 		zipCodeDAO.update(zipCode);
-		
 	}
 
 	@Override
 	@Transactional
 	public void deleteZipCode(Zip_Codes zipCode) {
-		zipCodeDAO.delete(zipCode.getId());
-		
+		zipCodeDAO.delete(zipCode.getId());	
 	}
 
 	

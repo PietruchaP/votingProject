@@ -8,3 +8,4 @@ import org.springframework.stereotype.Repository;
 public class Zip_CodesDAO extends GenericDaoImp<Zip_Codes> {
 
 }
+
