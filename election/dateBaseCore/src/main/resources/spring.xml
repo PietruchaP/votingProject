@@ -52,8 +52,17 @@
 		</property>
 	</bean>
 	
- <bean id="zipCodeDAO" class="hibernate.dao.Zip_CodesDAO">
-	<!-- 	<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />-->	
+	 <bean id="zip_CodesDAO" class="hibernate.dao.GenericDaoImp">
+		 <property name="dataSource" ref="dataSource"></property>
 	</bean>
+	
+	<!--  <bean id="genericDAO" class="hibernate.dao.GenericDaoImp">
+ 		<property name="dataSource" ref="dataSource"></property>	
+	</bean>
+-->	
+	
+	 <bean id="Manager" class="hibernate.service.ManagerImpl">
+        <property name="Zip_CodesDAO" ref="Zip_CodesDAO"></property><!-- potem chyba zmienic na generic -->
+    </bean>
 	
 </beans>
