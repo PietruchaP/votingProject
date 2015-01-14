@@ -2,11 +2,15 @@ package hibernate.service;
 
 
 import hibernate.Operation.*;
+import hibernate.dao.Zip_CodesDAO;
+import hibernate.model.Zip_Codes;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
+
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 
 public class MainConnectionWithDateBase {
@@ -30,7 +34,8 @@ public class MainConnectionWithDateBase {
 		
 		switch(mainWindowChoice){
 		case 1:
-				zipCodeChoice();
+				//zipCodeChoice();
+				zipCodeNewChoice();
 			break;		
 		case 2:		
 				voterChoice();
@@ -49,7 +54,14 @@ public class MainConnectionWithDateBase {
 	}
 	
 	private void zipCodeNewChoice(){
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
 		
+		Zip_CodesDAO zipCodeDao = context.getBean(Zip_CodesDAO.class);
+		
+		Zip_Codes zipcode = new Zip_Codes();
+		zipcode.setZip_Codes("11-111");
+		
+		context.close();
 	}
 	
 	private void zipCodeChoice(){
