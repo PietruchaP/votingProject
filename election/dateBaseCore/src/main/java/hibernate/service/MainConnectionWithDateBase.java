@@ -56,12 +56,13 @@ public class MainConnectionWithDateBase {
 	private void zipCodeNewChoice(){
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
 		
-		Manager manager = context.getBean(ManagerImpl.class);		  
-		ZipCodesDAO zipCodeDAO = context.getBean(ZipCodesDAO.class);		
-		ZipCodes zipcode = new ZipCodes();
-		zipcode.setZipCodes("11-111");
-		manager.insertZipCode(zipcode);
-		context.close();
+		//Manager manager = context.getBean(ManagerImpl.class);		  
+		//Manager manager = new ManagerImpl();
+		//ZipCodesDAO zipCodeDAO = context.getBean(ZipCodesDAO.class);		
+		//ZipCodes zipcode = new ZipCodes();
+		//zipcode.setZipCodes("11-111");
+		//manager.insertZipCode(zipcode);
+		//context.close();
 	}
 	
 	private void zipCodeChoice(){
