@@ -1,13 +1,10 @@
 package hibernate.service;
 
-import javax.transaction.Transactional;
+import hibernate.dao.ZipCodesDAO;
+import hibernate.model.ZipCodes;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import hibernate.dao.ZipCodesDAO;
-import hibernate.model.ZipCodes;
-import hibernate.service.Manager;
 
 @Service
 public class ManagerImpl implements Manager{
@@ -16,7 +13,7 @@ public class ManagerImpl implements Manager{
 	@Autowired
 	ZipCodesDAO zipCodeDAO;
 	
-	public void setCustomerDAO(ZipCodesDAO zipCodeDAO) {
+	public void setZipCodesDAO(ZipCodesDAO zipCodeDAO) {
         this.zipCodeDAO = zipCodeDAO;
     }
 	

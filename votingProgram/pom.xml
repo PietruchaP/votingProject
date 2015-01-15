@@ -32,6 +32,9 @@
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-commons-annotations</artifactId>
 		</dependency>
+		
+		
+		<!--  OWN MODULE -->
 		<dependency>
 			<groupId>com.starterKids</groupId>
 			<artifactId>dateBaseCore</artifactId>

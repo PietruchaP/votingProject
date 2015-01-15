@@ -80,7 +80,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
 			<scope>test</scope>
 		</dependency>
 		
-	<!-- @Inject -->
+		<!-- @Inject -->
 		<dependency>
 			<groupId>javax.inject</groupId>
 			<artifactId>javax.inject</artifactId>
@@ -105,6 +105,28 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
-
+		<!--  Own module -->
+		
+		<dependency>
+			<groupId>com.starterKids</groupId>
+			<artifactId>dateBaseCore</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		
+		<dependency> 
+			<groupId>org.hibernate</groupId> 
+			<artifactId>hibernate-commons-annotations</artifactId> 
+		</dependency> 
+		<dependency> 
+			<groupId>org.hibernate</groupId> 
+			<artifactId>hibernate-core</artifactId> 
+		</dependency> 
+		<dependency> 
+			<groupId>org.hibernate</groupId> 
+			<artifactId>hibernate-annotations</artifactId> 
+		</dependency> 
+			<dependency> <groupId>org.hibernate</groupId> 
+			<artifactId>hibernate-entitymanager</artifactId> 
+		</dependency> 
 	</dependencies>	
 </project>
