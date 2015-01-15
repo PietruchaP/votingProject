@@ -19,8 +19,6 @@ public abstract class GenericDaoImp<T> implements GenericDAO<T> {
 	
 	protected EntityManager em;
 	
-	
-	
 	@PersistenceContext
 	public void setEm(EntityManager em) {
 		this.em = em;

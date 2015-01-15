@@ -54,9 +54,10 @@
 		<property name="password" value="pipin11" />
 	</bean>
 
-<!-- 	<bean id="Manager" class="hibernate.service.ManagerImpl">
-		<property name="Zip_CodesDAO" ref="Zip_CodesDAO"></property>
-	</bean> -->
+ <!-- 	<bean id="Manager" class="hibernate.service.ManagerImpl">
+		<property name="ZipCodesDAO" ref="ZipCodesDAO"></property>
+	</bean> --> 
+
  <bean id="persistenceExceptionTranslationPostProcessor"
 	      class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />	
 	       
