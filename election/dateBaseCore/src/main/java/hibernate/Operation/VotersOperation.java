@@ -1,7 +1,7 @@
 package hibernate.Operation;
 
 import hibernate.model.Voters;
-import hibernate.model.Zip_Codes;
+import hibernate.model.ZipCodes;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -64,7 +64,7 @@ public class VotersOperation {
 				getConfig();
 				tx = session.beginTransaction();
 				
-				Voters voter = (Voters)session.get(Zip_Codes.class,id);
+				Voters voter = (Voters)session.get(ZipCodes.class,id);
 				
 				if(voter!=null){
 					System.out.println("Printing Voter:");
@@ -87,7 +87,7 @@ public class VotersOperation {
 			try{
 				getConfig();
 
-				Voters voter = (Voters)session.get(Zip_Codes.class,id);
+				Voters voter = (Voters)session.get(ZipCodes.class,id);
 				
 				if(voter!=null){
 					voter.setId(id);

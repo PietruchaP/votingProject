@@ -4,7 +4,7 @@ import hibernate.model.Candidates;
 
 import org.springframework.stereotype.Repository;
 
-@Repository("candidateDao")
+@Repository
 public class CandidateDAO extends GenericDaoImp<Candidates> {
 
 }

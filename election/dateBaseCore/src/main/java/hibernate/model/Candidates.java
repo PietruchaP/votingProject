@@ -43,11 +43,11 @@ public class Candidates {
 	}
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn (name = "zip_codes_id")
-	private Zip_Codes zipCode;
-	public Zip_Codes getZip_Code() {
+	private ZipCodes zipCode;
+	public ZipCodes getZip_Code() {
 		return zipCode;
 	}
-	public void setZip_Code(Zip_Codes zipCode ){
+	public void setZip_Code(ZipCodes zipCode ){
 		this.zipCode = zipCode;
 	}
 }

@@ -2,37 +2,41 @@ package hibernate.service;
 
 import javax.transaction.Transactional;
 
-import hibernate.dao.Zip_CodesDAO;
-import hibernate.model.Zip_Codes;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import hibernate.dao.ZipCodesDAO;
+import hibernate.model.ZipCodes;
+import hibernate.service.Manager;
+
+@Service
 public class ManagerImpl implements Manager{
 
-	Zip_CodesDAO zipCodeDAO;
-	public void setCustomerDAO(Zip_CodesDAO zipCodeDAO) {
+	
+	@Autowired
+	ZipCodesDAO zipCodeDAO;
+	
+	public void setCustomerDAO(ZipCodesDAO zipCodeDAO) {
         this.zipCodeDAO = zipCodeDAO;
     }
 	
 	@Override
-	@Transactional
-	public void insertZipCode(Zip_Codes zipCode) {
+	public void insertZipCode(ZipCodes zipCode) {
 		zipCodeDAO.create(zipCode);	
 	}
 
 	@Override
-	@Transactional
-	public void retriveZipCode(Zip_Codes zipCode) {
+	public void retriveZipCode(ZipCodes zipCode) {
 		zipCodeDAO.retrive(zipCode.getId());	
 	}
 
 	@Override
-	@Transactional
-	public void updateZipCode(Zip_Codes zipCode) {
+	public void updateZipCode(ZipCodes zipCode) {
 		zipCodeDAO.update(zipCode);
 	}
 
 	@Override
-	@Transactional
-	public void deleteZipCode(Zip_Codes zipCode) {
+	public void deleteZipCode(ZipCodes zipCode) {
 		zipCodeDAO.delete(zipCode.getId());	
 	}
 

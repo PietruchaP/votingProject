@@ -4,7 +4,7 @@ import org.springframework.stereotype.Repository;
 
 import hibernate.model.Voters;
 
-@Repository("voterDao")
+@Repository
 public class VoterDAO extends GenericDaoImp<Voters> {
 		
 }

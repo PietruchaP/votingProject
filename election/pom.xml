@@ -26,6 +26,8 @@
  	 <module>../votingProgram</module>
  	 <module>dateBaseCore</module>
  	 <module>transfer</module>
+ 	 <module>RestWeService</module>
+ 	 <module>RestWebService</module>
   </modules>
   
   	  <build>

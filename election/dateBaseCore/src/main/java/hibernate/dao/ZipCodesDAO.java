@@ -1,10 +1,11 @@
 package hibernate.dao;
 
-import hibernate.model.Elections;
+import hibernate.model.ZipCodes;
 
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class ElectionsDAO extends GenericDaoImp<Elections> {
+public class ZipCodesDAO extends GenericDaoImp<ZipCodes> {
 
 }
+

@@ -1,10 +1,16 @@
 package hibernate.service;
 
-import hibernate.model.Zip_Codes;
+import javax.transaction.Transactional;
+
+import hibernate.model.ZipCodes;
 
 public interface Manager {
-	public void insertZipCode(Zip_Codes zipCode);
-	public void retriveZipCode(Zip_Codes zipCode);
-	public void updateZipCode(Zip_Codes zipCode);
-	public void deleteZipCode(Zip_Codes zipCode);
+	@Transactional
+	public void insertZipCode(ZipCodes zipCode);
+	@Transactional
+	public void retriveZipCode(ZipCodes zipCode);
+	@Transactional
+	public void updateZipCode(ZipCodes zipCode);
+	@Transactional
+	public void deleteZipCode(ZipCodes zipCode);
 }

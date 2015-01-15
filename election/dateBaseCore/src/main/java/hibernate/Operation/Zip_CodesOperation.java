@@ -1,6 +1,6 @@
 package hibernate.Operation;
 
-import hibernate.model.Zip_Codes;
+import hibernate.model.ZipCodes;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -44,10 +44,10 @@ public class Zip_CodesOperation{
 			getConfig();
 			tx = session.beginTransaction();
 			
-			Zip_Codes zip = (Zip_Codes)session.get(Zip_Codes.class,id);
+			ZipCodes zip = (ZipCodes)session.get(ZipCodes.class,id);
 			
 			if(zip!=null){
-				retrieve = zip.getZip_Codes();
+				retrieve = zip.getZipCodes();
 			}
 			else{
 				System.out.println("No zipCode with this id");
@@ -66,8 +66,8 @@ public class Zip_CodesOperation{
 		try{
 			getConfig();
 			
-			Zip_Codes zip = new Zip_Codes();
-			zip.setZip_Codes(zipCode);
+			ZipCodes zip = new ZipCodes();
+			zip.setZipCodes(zipCode);
 			
 			tx = session.beginTransaction();
 			int result = (Integer)session.save(zip); //give primary key
@@ -91,12 +91,12 @@ public class Zip_CodesOperation{
 			getConfig();
 			tx = session.beginTransaction();
 			
-			Zip_Codes zip = (Zip_Codes)session.get(Zip_Codes.class,id);
+			ZipCodes zip = (ZipCodes)session.get(ZipCodes.class,id);
 			
 			if(zip!=null){
 				System.out.println("Printing zip code:");
 				System.out.println("zip code id: "+zip.getId());
-				System.out.println("zip code: "+zip.getZip_Codes());
+				System.out.println("zip code: "+zip.getZipCodes());
 			}
 			else{
 				System.out.println("No zip code with this id");
@@ -114,18 +114,18 @@ public class Zip_CodesOperation{
 		try{
 			getConfig();
 
-			Zip_Codes zip = (Zip_Codes)session.get(Zip_Codes.class,id);
+			ZipCodes zip = (ZipCodes)session.get(ZipCodes.class,id);
 			
 			if(zip!=null){
 				zip.setId(id);
-				zip.setZip_Codes(zipCode);
+				zip.setZipCodes(zipCode);
 				
 				tx = session.beginTransaction();
 				session.update(zip);
 				
 				System.out.println("Printing Zip code:");
 				System.out.println("Zip Code with id: "+zip.getId()+" was updated");
-				System.out.println("zip Code: "+zip.getZip_Codes());
+				System.out.println("zip Code: "+zip.getZipCodes());
 				
 				tx.commit();
 				
@@ -145,7 +145,7 @@ public class Zip_CodesOperation{
 			
 			tx = session.beginTransaction();
 			
-			Zip_Codes zip = new Zip_Codes();
+			ZipCodes zip = new ZipCodes();
 			zip.setId(id);
 			
 			session.delete(zip);

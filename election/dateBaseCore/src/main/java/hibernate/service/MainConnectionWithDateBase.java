@@ -2,8 +2,8 @@ package hibernate.service;
 
 
 import hibernate.Operation.*;
-import hibernate.dao.Zip_CodesDAO;
-import hibernate.model.Zip_Codes;
+import hibernate.dao.ZipCodesDAO;
+import hibernate.model.ZipCodes;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -56,12 +56,12 @@ public class MainConnectionWithDateBase {
 	private void zipCodeNewChoice(){
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
 		
-		Manager manager = context.getBean("Manager",ManagerImpl.class);		  
-//		Zip_CodesDAO zipCodeDAO = context.getBean(Zip_CodesDAO.class);		
-		Zip_Codes zipcode = new Zip_Codes();
-		zipcode.setZip_Codes("11-111");
-		manager.insertZipCode(zipcode);
-		context.close();
+		//Manager manager = context.getBean("Manager",ManagerImpl.class);		  
+		//Zip_CodesDAO zipCodeDAO = context.getBean(Zip_CodesDAO.class);		
+		//Zip_Codes zipcode = new Zip_Codes();
+		//zipcode.setZip_Codes("11-111");
+		//manager.insertZipCode(zipcode);
+		//context.close();
 	}
 	
 	private void zipCodeChoice(){

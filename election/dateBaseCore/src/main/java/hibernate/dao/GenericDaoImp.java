@@ -16,9 +16,16 @@ import hibernate.dao.GenericDAO;
 
 public abstract class GenericDaoImp<T> implements GenericDAO<T> {
 
-	@PersistenceContext
+	
 	protected EntityManager em;
 	
+	
+	
+	@PersistenceContext
+	public void setEm(EntityManager em) {
+		this.em = em;
+	}
+
 	private Class<T> type;
 	
 	public GenericDaoImp(){

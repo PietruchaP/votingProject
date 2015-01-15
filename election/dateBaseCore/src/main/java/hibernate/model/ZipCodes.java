@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table (name = "zip_codes")
-public class Zip_Codes {
+public class ZipCodes {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO) @Column (name="id")
@@ -23,13 +23,13 @@ public class Zip_Codes {
 		this.id = id;
 	}
 	@Column (name ="zip_code")
-	private String zip_Codes;
+	private String zipCodes;
 	
-	public String getZip_Codes() {
-		return zip_Codes;
+	public String getZipCodes() {
+		return zipCodes;
 	}
-	public void setZip_Codes(String zip_Codes) {
-		this.zip_Codes = zip_Codes;
+	public void setZipCodes(String zipCodes) {
+		this.zipCodes = zipCodes;
 	}
 	
 }
