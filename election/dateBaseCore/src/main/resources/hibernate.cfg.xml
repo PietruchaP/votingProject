@@ -13,10 +13,10 @@
 		<property name="hibernate.connection.pool_size">1</property>  
 		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
 		<property name="hbm2ddl.auto">update</property>
-		 <mapping class="hibernate.Tables.Zip_Codes"></mapping>
-		 <mapping class="hibernate.Tables.Candidates"></mapping>
-		 <mapping class="hibernate.Tables.Results"></mapping>
-		 <mapping class="hibernate.Tables.Elections"></mapping>
-		 <mapping class="hibernate.Tables.Voters"></mapping>
+		 <mapping class="hibernate.model.ZipCodes"></mapping>
+		 <mapping class="hibernate.model.Candidates"></mapping>
+	<!-- 	 <mapping class="hibernate.model.Results"></mapping> -->
+		 <mapping class="hibernate.model.Elections"></mapping>
+		 <mapping class="hibernate.model.Voters"></mapping>
     </session-factory>
 </hibernate-configuration>

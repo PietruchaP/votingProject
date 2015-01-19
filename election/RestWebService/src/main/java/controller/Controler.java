@@ -1,71 +1,46 @@
 package controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import hibernate.model.ZipCodes;
 import hibernate.service.Manager;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import controller.RestURs;
 
 @Controller
-@RequestMapping(value="/zipCode")
+//@RequestMapping(value="/zipCode")
 public class Controler {
+	
+	
+	private static final Logger logger = LoggerFactory.getLogger(Controler.class);
+	
 	@Autowired
 	private Manager manager;
-
-	 @RequestMapping(value="/add", method=RequestMethod.GET)
-	 public ModelAndView addStrategyPage(@RequestParam(value = "param") String param) {
-		 System.out.println(param);
-	  ModelAndView modelAndView = new ModelAndView("strategy-add");
-	  modelAndView.addObject("zipCode", new ZipCodes());
-	  return modelAndView;
-	 }
-	 
-	 @RequestMapping(value="/add/{param}", method=RequestMethod.GET)
-	 public ModelAndView addStrategyPage2(@PathVariable(value = "param") String param) {
-		 System.out.println(param);
-	  ModelAndView modelAndView = new ModelAndView("strategy-add");
-	  modelAndView.addObject("zipCode", new ZipCodes());
-	  return modelAndView;
-	 }
-	  
-	 @RequestMapping(value="/add", method=RequestMethod.POST)
-	 public ModelAndView addingStrategy(@ModelAttribute ZipCodes zipCode) {
-	  ModelAndView modelAndView = new ModelAndView("home");
-	  manager.insertZipCode(zipCode);
-	  String message = "zipCode was successfully added.";
-	  modelAndView.addObject("message", message);
-	  return modelAndView;
-	 }
-
-	 @RequestMapping(value="/edit/{id}", method=RequestMethod.GET)
-	 public ModelAndView editStrategyPage(@PathVariable Integer id) {
-	  ModelAndView modelAndView = new ModelAndView("strategy-edit");
-//	  ZipCodes zipCode = manager.retriveZipCode(id);
-//	  modelAndView.addObject("strategy",zipCode);
-	  return modelAndView;
-	 }
-	  
-	 @RequestMapping(value="/edit/{id}", method=RequestMethod.POST)
-	 public ModelAndView edditingStrategy(@ModelAttribute ZipCodes zipCode, @PathVariable Integer id) {
-	  ModelAndView modelAndView = new ModelAndView("home");
-	  manager.updateZipCode(zipCode);
-	  String message = "zipCode was successfully edited.";
-	  modelAndView.addObject("message", message);
-	  return modelAndView;
-	 }
-	  
-	 @RequestMapping(value="/delete/{id}", method=RequestMethod.GET)
-	 public ModelAndView deleteStrategy(@PathVariable Integer id) {
-	  ModelAndView modelAndView = new ModelAndView("home");
-//	  manager.deleteZipCode(id);
-	  String message = "zipCode was successfully deleted.";
-	  modelAndView.addObject("message", message);
-	  return modelAndView;
-	 }
+	Map<Integer, ZipCodes> empData = new HashMap<Integer, ZipCodes>();
+	
+	@RequestMapping(value = RestURs.DUMMY, method = RequestMethod.GET)
+	public @ResponseBody ZipCodes getDummy() {
+		logger.info("Start getDummyEmployee");
+		ZipCodes zipCode = new ZipCodes();
+		zipCode.setZipCodes("88-888");
+		return zipCode;
+	}
+	
+	@RequestMapping(value = RestURs.GET_ZIPCODE, method = RequestMethod.GET)
+	public @ResponseBody ZipCodes getEmployee(@PathVariable("id") int zipCodeId) {
+		logger.info("Start getEmployee. ID="+zipCodeId);
+		
+		return empData.get(zipCodeId);
+	}
+	
 }

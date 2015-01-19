@@ -1,6 +1,6 @@
 package starterKids.votingProgram;
 
-import hibernate.service.MainConnectionWithDateBase;
+import hibernate.service.SpringConnectionWithBase;
 
 import java.awt.EventQueue;
 import java.util.Scanner;
@@ -47,8 +47,10 @@ public class VotingProgram
 	}
 	
 	private static void connectWithDatebase(){
-		MainConnectionWithDateBase hibernateConnection = new MainConnectionWithDateBase();
-		hibernateConnection.connectWithDatebase();
+		//MainConnectionWithDateBase hibernateConnection = new MainConnectionWithDateBase();
+		//hibernateConnection.connectWithDatebase();
+		SpringConnectionWithBase connectBase = new SpringConnectionWithBase();
+		connectBase.connectWithDateBase();
 	}
 	
     public VotingProgram() {

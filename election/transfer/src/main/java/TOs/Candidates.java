@@ -1,12 +1,17 @@
 package TOs;
 
+import java.util.Date;
+
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.DateSerializer;
+
 
 public class Candidates {
 	
 	private int id;
 	private String firstname;
 	private String surname;	
-	private Zip_Codes zipCode;
+	private ZipCodes zipCode;
 	
 	public int getId() {
 		return id;
@@ -29,10 +34,18 @@ public class Candidates {
 		this.surname = surname;
 	}
 
-	public Zip_Codes getZipCode() {
+	public ZipCodes getZipCode() {
 		return zipCode;
 	}
-	public void setZipCode(Zip_Codes zip_Code ){
+	public void setZipCode(ZipCodes zip_Code ){
 		zipCode = zip_Code;
 	}
+	
+/*	@JsonSerialize(using=DateSerializer.class)
+	public ZipCodes getCreatedDate() {
+		return zipCode;
+	}
+	public void setCreatedDate(ZipCodes zipCode) {
+		this.zipCode = zipCode;
+	}*/
 }

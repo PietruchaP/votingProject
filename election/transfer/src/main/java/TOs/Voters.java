@@ -3,7 +3,7 @@ package TOs;
 public class Voters {
 	
 	private int id;
-	private Zip_Codes zipCode;
+	private ZipCodes zipCode;
 	private String pesel;
 	
 	public int getId() {
@@ -20,10 +20,10 @@ public class Voters {
 		this.pesel = pesel;
 	}
 	
-	public Zip_Codes getZipCode() {
+	public ZipCodes getZipCode() {
 		return zipCode;
 	}
-	public void setZipCode(Zip_Codes zip_Code){
+	public void setZipCode(ZipCodes zip_Code){
 		zipCode = zip_Code;
 	}
 }

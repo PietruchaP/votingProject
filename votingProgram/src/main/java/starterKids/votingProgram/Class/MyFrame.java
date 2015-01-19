@@ -82,6 +82,3 @@ public class MyFrame{
 		 frame.getContentPane().add(loginPanel.getPanel());
 	} 		
 }
-
-//    JOptionPane.showMessageDialog(null, null, "InfoBox: "+ loginPanel.getPeselField().getText(), JOptionPane.INFORMATION_MESSAGE);
-

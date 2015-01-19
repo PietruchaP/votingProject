@@ -14,7 +14,6 @@ public class PeselVerifyTest {
 
 	@Test
 	public void test() {
-	//	fail("Not yet implemented");
 	}
 	
 	@Test
@@ -85,22 +84,10 @@ public class PeselVerifyTest {
 		assertEquals(false, test);
 	}
 	@Test
-	public void verifyPeselIsEmpty(){
-		//PeselVerify pesel = new PeselVerify("");
-		//boolean test = pesel.isPeselCorrect();
-		//assertEquals(false, test);
-	}
-	@Test
-	public void checkDateIfToMany(){
-		//PeselVerify pesel = new PeselVerify("90023543059196");
-	}
-	@Test
 	public void checkPrintControValueMethod(){
 		PeselVerify pesel = new PeselVerify("90122301778");
 		pesel.countControlSum();
 		int controlPeselValue = pesel.getControlValue();
 		String Value = Integer.toString(controlPeselValue);
-		
-	//	assertEquals()
 	}
 }
